@@ -1,0 +1,26 @@
+name: EasyTaskBar Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Build
+      run: |
+        cmake -B ./build -G "Visual Studio 16 2019" -T host=x64 -A x64 .
+        cmake --build ./build --config Release --target ALL_BUILD -j 4 --
+        move ./build/build/Release/easy-taskbar-progress.dll .
+
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          easy-taskbar-progress.dll
