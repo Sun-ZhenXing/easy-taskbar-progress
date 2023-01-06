@@ -4,7 +4,7 @@ from tkinter import Button, Tk
 
 from progressbar import ProgressBar
 
-DLL_PATH = '../build/build/Release/easy-taskbar-progress.dll'
+DLL_PATH = './build/build/Release/easy-taskbar-progress.dll'
 
 
 class ProgressBar:

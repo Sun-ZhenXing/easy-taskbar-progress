@@ -17,6 +17,8 @@ jobs:
         cmake -B ./build -G "Visual Studio 16 2019" -T host=x64 -A x64 .
         cmake --build ./build --config Release --target ALL_BUILD -j 4 --
         move ./build/build/Release/easy-taskbar-progress.dll .
+        move ./build/Release/easy-taskbar-progress.exp .
+        move ./build/Release/easy-taskbar-progress.lib .
 
     - name: Release
       uses: softprops/action-gh-release@v1
@@ -24,3 +26,5 @@ jobs:
       with:
         files: |
           easy-taskbar-progress.dll
+          easy-taskbar-progress.exp
+          easy-taskbar-progress.lib
