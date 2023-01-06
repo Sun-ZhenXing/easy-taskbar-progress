@@ -2,8 +2,6 @@ import sys
 from ctypes import CDLL, c_int
 from tkinter import Button, Tk
 
-from progressbar import ProgressBar
-
 DLL_PATH = './build/build/Release/easy-taskbar-progress.dll'
 
 

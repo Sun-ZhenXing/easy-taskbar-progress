@@ -1,3 +1,13 @@
+# cmake build
 build/
-__pycache__/
 *.dll
+*.exe
+*.exp
+*.lib
+
+# python build
+__pycache__/
+*.pyc
+
+# vscode
+.vscode/
