@@ -2,7 +2,7 @@
 
 Windows 下的超简单的工具栏进度条 DLL。可嵌入任意 GUI 程序。
 
-![](./images/demo.png)
+![](images/2023-01-08-22-45-51.png)
 
 大量参考了 [Shane 的博客](http://shanekirk.com/2014/12/making-progress-on-the-windows-taskbar/)。
 

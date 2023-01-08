@@ -1,5 +1,12 @@
 #include "progress.h"
 
+TaskBarProgress::TaskBarProgress(HWND hWnd)
+    : m_hWnd(hWnd), m_pTaskBarList3(NULL) {}
+
+TaskBarProgress::~TaskBarProgress() {
+    _ASSERT(m_pTaskBarList3 == NULL);
+}
+
 void TaskBarProgress::startProgressMode(int mode) {
     if (mode != TBPF_NOPROGRESS && mode != TBPF_INDETERMINATE && mode != TBPF_NORMAL && mode != TBPF_ERROR && mode != TBPF_PAUSED)
         return;

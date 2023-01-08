@@ -1,14 +1,14 @@
+#ifndef PROGRESS_H
+#define PROGRESS_H
+
 #include <Windows.h>
 #include <crtdbg.h>
 #include <shobjidl_core.h>
 
 class TaskBarProgress {
    public:
-    TaskBarProgress(HWND hWnd)
-        : m_hWnd(hWnd), m_pTaskBarList3(NULL) {}
-    virtual ~TaskBarProgress() {
-        _ASSERT(m_pTaskBarList3 == NULL);
-    }
+    TaskBarProgress(HWND hWnd);
+    virtual ~TaskBarProgress();
 
     void startProgressMode(int mode = TBPF_NORMAL);
     void endProgressMode();
@@ -18,3 +18,5 @@ class TaskBarProgress {
     HWND m_hWnd;
     ITaskbarList3* m_pTaskBarList3;
 };
+
+#endif  // PROGRESS_H
