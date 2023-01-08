@@ -14,8 +14,6 @@ class ProgressBar:
         self._is_init = False
 
     def init(self) -> int:
-        if self._is_init:
-            return 0
         self._is_init = True
         return self._dll.init()
 
