@@ -2,7 +2,7 @@ import sys
 from ctypes import CDLL, c_int
 from tkinter import Button, Tk
 
-DLL_PATH = './x64/easy-taskbar-progress.dll'
+DLL_PATH = './build/build/Release/easy-taskbar-progress.dll'
 
 
 class ProgressBar:
@@ -14,8 +14,9 @@ class ProgressBar:
         self._is_init = False
 
     def init(self) -> int:
+        ret = self._dll.init()
         self._is_init = True
-        return self._dll.init()
+        return ret
 
     def set_mode(self, mode: int) -> int:
         if not self._is_init:
@@ -39,7 +40,8 @@ curr_mode = 0
 
 def running():
     global curr_progress
-    progressbar.init()
+    if curr_progress == 0:
+        progressbar.init()
     curr_progress += 10
     if curr_progress > 100:
         curr_progress = 0
