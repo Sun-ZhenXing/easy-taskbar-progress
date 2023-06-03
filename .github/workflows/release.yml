@@ -14,10 +14,6 @@ jobs:
 
     - name: Build
       run: |
-        Remove-Item .\build\ -Force -Recurse
-        Remove-Item .\x64\ -Force -Recurse
-        Remove-Item .\x86\ -Force -Recurse
-
         New-Item x64 -ItemType "directory" -Force
         New-Item x86 -ItemType "directory" -Force
 
