@@ -10,7 +10,7 @@ class TaskBarProgress {
     TaskBarProgress(HWND hWnd);
     virtual ~TaskBarProgress();
 
-    void startProgressMode(int mode = TBPF_NORMAL);
+    void startProgressMode(int mode = TBPF_NOPROGRESS);
     void endProgressMode();
     void setProgress(ULONGLONG progressValue, ULONGLONG progressTotal);
 

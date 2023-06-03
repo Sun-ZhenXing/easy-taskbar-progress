@@ -12,6 +12,13 @@ void init() {
     g_progress.startProgressMode();
 }
 
+// init progress bar with hwnd
+void init(HWND hwnd) {
+    CoInitialize(NULL);
+    g_progress = TaskBarProgress(hwnd);
+    g_progress.startProgressMode();
+}
+
 // set progress bar mode, must be init first
 void set_mode(int mode) {
     g_progress.startProgressMode(mode);
