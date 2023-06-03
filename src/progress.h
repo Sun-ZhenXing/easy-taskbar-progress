@@ -6,7 +6,7 @@
 #include <shobjidl_core.h>
 
 class TaskBarProgress {
-   public:
+public:
     TaskBarProgress(HWND hWnd);
     virtual ~TaskBarProgress();
 
@@ -14,7 +14,7 @@ class TaskBarProgress {
     void endProgressMode();
     void setProgress(ULONGLONG progressValue, ULONGLONG progressTotal);
 
-   private:
+private:
     HWND m_hWnd;
     ITaskbarList3* m_pTaskBarList3;
 };

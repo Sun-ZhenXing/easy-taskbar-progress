@@ -2,7 +2,7 @@
 
 Windows 下的超简单的工具栏进度条 DLL。可嵌入任意 GUI 程序。
 
-![](images/2023-01-08-22-45-51.png)
+![demo](images/2023-01-08-22-45-51.png)
 
 大量参考了 [Shane 的博客](http://shanekirk.com/2014/12/making-progress-on-the-windows-taskbar/)。
 
@@ -34,6 +34,7 @@ cmake --build ./build --config Release --target ALL_BUILD -j 4 --
 | 接口                              | 功能                             |
 | --------------------------------- | -------------------------------- |
 | `init()`                          | 开始进度条功能                   |
+| `init_with_hwnd(HWND hwnd)`       | 开始进度条功能，指定窗口句柄     |
 | `set_mode(int mode)`              | 设置模式                         |
 | `set_value(int value, int total)` | 设置值，最终表示为 `value/total` |
 | `end()`                           | 结束进度条功能                   |

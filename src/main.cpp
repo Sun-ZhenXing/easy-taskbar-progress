@@ -1,4 +1,5 @@
 #include "main.h"
+
 #include "progress.h"
 
 HWND g_hwnd;
@@ -13,21 +14,17 @@ void init() {
 }
 
 // init progress bar with hwnd
-void init(HWND hwnd) {
+void init_with_hwnd(HWND hwnd) {
     CoInitialize(NULL);
     g_progress = TaskBarProgress(hwnd);
     g_progress.startProgressMode();
 }
 
 // set progress bar mode, must be init first
-void set_mode(int mode) {
-    g_progress.startProgressMode(mode);
-}
+void set_mode(int mode) { g_progress.startProgressMode(mode); }
 
 // set progress bar value, must be init first, and be TBPF_NORMAL mode
-void set_value(int value, int total) {
-    g_progress.setProgress(value, total);
-}
+void set_value(int value, int total) { g_progress.setProgress(value, total); }
 
 // release progress bar
 void end() {
