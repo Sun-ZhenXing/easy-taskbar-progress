@@ -1,40 +1,11 @@
-import sys
-from ctypes import CDLL, c_int
 from tkinter import Button, Tk
 
-DLL_PATH = "./build/build/Release/easy-taskbar-progress.dll"
-
-
-class ProgressBar:
-    def __init__(self) -> None:
-        if sys.platform == "win32":
-            self._dll = CDLL(DLL_PATH)
-        else:
-            raise NotImplementedError("Only Windows is supported")
-        self._is_init = False
-
-    def init(self) -> int:
-        ret = self._dll.init()
-        self._is_init = True
-        return ret
-
-    def set_mode(self, mode: int) -> int:
-        if not self._is_init:
-            raise RuntimeError("ProgressBar is not initialized")
-        return self._dll.set_mode(c_int(mode))
-
-    def set_progress(self, progress: int, total: int) -> int:
-        if not self._is_init:
-            raise RuntimeError("ProgressBar is not initialized")
-        return self._dll.set_value(c_int(progress), c_int(total))
-
-    def end(self) -> int:
-        return self._dll.end()
+from easy_progressbar import EasyProgressBar
 
 
 class ProgressBarTest:
     def __init__(self) -> None:
-        self.progressbar = ProgressBar()
+        self.progressbar = EasyProgressBar()
         self.curr_progress = 0
         self.curr_mode = 0
 

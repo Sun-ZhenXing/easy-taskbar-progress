@@ -4,8 +4,12 @@ Windows 下的超简单的工具栏进度条 DLL。可嵌入任意 GUI 程序。
 
 ![demo](images/2023-01-08-22-45-51.png)
 
-大量参考了 [Shane 的博客](http://shanekirk.com/2014/12/making-progress-on-the-windows-taskbar/)。
+如果你需要在你的 C/C++ 项目中使用，可以复制 `progress.cpp` 和 `progress.h` 直接使用，更加灵活。如果你没有编译环境，可以直接下载 Release 中的 DLL 文件，然后调用 DLL 接口即可，如果你正在使用 Python，可以直接复制 `tests/easy_progressbar.py` 文件直接使用。
 
+注意 Windows 11 并不完全遵循下方的模式设置，例如设置进度时如果当前模式是加载中（`TBPF_INDETERMINATE`）也能继续显示，但是本项目仍然兼容。
+
+> 考虑到 Qt 6 已经不支持各个平台下的任务栏进度条了，所以创建了一个 Windows 版本的进度条应用，参考了 Windows API ，并且大量参考了 [Shane 的博客](http://shanekirk.com/2014/12/making-progress-on-the-windows-taskbar/)。
+>
 > 本项目也是作为学习 GitHub Actions 和 CMake 的学习材料。作者也是通过学习创建了此项目。
 
 - [Easy Taskbar Progress](#easy-taskbar-progress)
